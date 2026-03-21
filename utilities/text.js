@@ -10,9 +10,7 @@ export function textHandler (parts) {
     ]
     
     const value = parts[1];
-    for (const r of resolvers){
-        console.log(r.property);
-        
+    for (const r of resolvers){        
         if(r.source[value]) return {
             [r.property] : r.source[value]
         }

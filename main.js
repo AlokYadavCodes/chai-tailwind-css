@@ -4,6 +4,8 @@ import { flexHandler } from "./utilities/flex.js";
 import { sizeHandler } from "./utilities/size.js";
 import { bgHandler } from "./utilities/bg.js";
 import { textHandler } from "./utilities/text.js";
+import { borderHandler } from "./utilities/border.js";
+import { fontHandler } from "./utilities/font.js";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -63,18 +65,18 @@ const staticUtilities = {
 
 const marginUtilities = Object.fromEntries(["m", "mx", "my", "mt", "mb", "ml", "mr"].map((key) => [key, spacingHandler]));
 const paddingUtilities = Object.fromEntries(["p", "px", "py", "pt", "pb", "pl", "pr"].map((key) => [key, spacingHandler]));
+const sizeUtilities = Object.fromEntries(["w", "h", "max-w", "min-w", "max-h", "min-h"].map((key) => [key, sizeHandler]));
 
 const utilities = {
     ...marginUtilities,
     ...paddingUtilities,
+    ...sizeUtilities,
     // gap: spacingHandler,
     bg: bgHandler,
     text: textHandler,
     z: (parts)=> ({"z-index" : parts[1]}),
     w: sizeHandler,
     h: sizeHandler,
-    "max-w": sizeHandler,
-    "max-h": sizeHandler,
 
     top: positionHandler,
     bottom: positionHandler,
@@ -83,11 +85,16 @@ const utilities = {
     justify: flexHandler,
     items: flexHandler,
 
+    border: borderHandler,
+    rounded: borderHandler,
+
+    font: fontHandler
+
 }
 
 function getPrefix(parts) {
   // return longest match first (e.g. "max-w" and not "max" for something like "max-w-96")
-  for (let i = parts.length - 1; i > 0; i--) {
+  for (let i = parts.length; i > 0; i--) {
     const candidate = parts.slice(0, i).join("-");
     if (utilities[candidate]) return candidate;
   }

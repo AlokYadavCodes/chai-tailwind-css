@@ -2,4 +2,7 @@ export const colorMap = {
     red: "#ff0000",
     green: "#00ff00",
     blue: "#0000ff",
+    black: "#000000",
+    white: "#ffffff",
+    gray: "#808080",
 }

@@ -53,7 +53,9 @@ const sizePropertyMap = {
     "w": "width",
     "h": "height",
     "max-w": "max-width",
+    "min-w": "min-width",
     "max-h": "max-height",
+    "min-h": "min-height",
 }
 
 export function sizeHandler(parts) {
