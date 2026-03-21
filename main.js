@@ -6,6 +6,8 @@ import { bgHandler } from "./utilities/bg.js";
 import { textHandler } from "./utilities/text.js";
 import { borderHandler } from "./utilities/border.js";
 import { fontHandler } from "./utilities/font.js";
+import { gridHandler } from "./utilities/grid.js";
+import { transformHandler } from "./utilities/transform.js";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -65,13 +67,14 @@ const staticUtilities = {
 
 const marginUtilities = Object.fromEntries(["m", "mx", "my", "mt", "mb", "ml", "mr"].map((key) => [key, spacingHandler]));
 const paddingUtilities = Object.fromEntries(["p", "px", "py", "pt", "pb", "pl", "pr"].map((key) => [key, spacingHandler]));
+const gapUtilities = Object.fromEntries(["gap", "gap-x", "gap-y"].map((key) => [key, spacingHandler]));
 const sizeUtilities = Object.fromEntries(["w", "h", "max-w", "min-w", "max-h", "min-h"].map((key) => [key, sizeHandler]));
 
 const utilities = {
     ...marginUtilities,
     ...paddingUtilities,
     ...sizeUtilities,
-    // gap: spacingHandler,
+    ...gapUtilities,
     bg: bgHandler,
     text: textHandler,
     z: (parts)=> ({"z-index" : parts[1]}),
@@ -88,7 +91,16 @@ const utilities = {
     border: borderHandler,
     rounded: borderHandler,
 
-    font: fontHandler
+    font: fontHandler,
+
+    "grid-cols": gridHandler,
+    "grid-rows": gridHandler,
+    "col-span":  gridHandler,
+    "row-span":  gridHandler,
+
+    "scale":   transformHandler,
+    "scale-x": transformHandler,
+    "scale-y": transformHandler,
 
 }
 

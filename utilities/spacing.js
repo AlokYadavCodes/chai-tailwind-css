@@ -16,12 +16,21 @@ const spacingPropertyMap = {
     "pr": ["padding-right"],
     "px": ["padding-left", "padding-right"],
     "py": ["padding-top", "padding-bottom"],
-    // "gap": ["gap"]
+    "gap":   ["gap"],
+    "gap-x": ["column-gap"],
+    "gap-y": ["row-gap"],
 }
 
 export function spacingHandler(parts) {
-    const property = parts[0];
-    const value = parts[1];
+    let property, value;
+
+    if (parts.length === 3) {
+        property = `${parts[0]}-${parts[1]}`;
+        value = parts[2];
+    } else {
+        property = parts[0];
+        value = parts[1];
+    }
 
     if(!spacingPropertyMap[property]) return null;
     const styles = {};
