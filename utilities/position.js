@@ -8,12 +8,13 @@ const positionMap = {
 }
 
 export function positionHandler(parts){
-    if(!positionMap[parts[0]]) return null;
-
-    const property = positionMap[parts[0]];
+    const property = [parts[0]];
     const value = parts[1];
+
+    if(!positionMap[property]) return null;
+    
     return {
-        [property]: spacingScale[value]
+        [positionMap[property]]: spacingScale[value]
     }
 
 }

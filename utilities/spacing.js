@@ -1,15 +1,32 @@
 import { spacingScale } from "../config/spacingScale.js"
 
-export function marginHandler (parts){
-    const value = parts[1];
-    return {
-        "margin": spacingScale[value],
-    }
+const spacingPropertyMap = {
+    "m": ["margin"],
+    "mt": ["margin-top"],
+    "mb": ["margin-bottom"],
+    "ml": ["margin-left"],
+    "mr": ["margin-right"],
+    "mx": ["margin-left", "margin-right"],
+    "my": ["margin-top", "margin-bottom"],
+
+    "p": ["padding"],
+    "pt": ["padding-top"],
+    "pb": ["padding-bottom"],
+    "pl": ["padding-left"],
+    "pr": ["padding-right"],
+    "px": ["padding-left", "padding-right"],
+    "py": ["padding-top", "padding-bottom"],
+    // "gap": ["gap"]
 }
 
-export function paddingHandler (parts){
+export function spacingHandler(parts) {
+    const property = parts[0];
     const value = parts[1];
-    return {
-        "padding": spacingScale[value],
+
+    if(!spacingPropertyMap[property]) return null;
+    const styles = {};
+    for (const prop of spacingPropertyMap[property]) {
+        styles[prop] = spacingScale[value];
     }
+    return styles;
 }

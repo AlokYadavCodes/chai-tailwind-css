@@ -1,6 +1,7 @@
-import { marginHandler, paddingHandler } from "./utilities/spacing.js";
+import { spacingHandler } from "./utilities/spacing.js";
 import { positionHandler } from "./utilities/position.js";
 import { flexHandler } from "./utilities/flex.js";
+import { sizeHandler } from "./utilities/size.js";
 import { bgHandler } from "./utilities/bg.js";
 import { textHandler } from "./utilities/text.js";
 
@@ -60,32 +61,45 @@ const staticUtilities = {
     "flex-nowrap": { flexWrap: "nowrap" },
 };
 
+const marginUtilities = Object.fromEntries(["m", "mx", "my", "mt", "mb", "ml", "mr"].map((key) => [key, spacingHandler]));
+const paddingUtilities = Object.fromEntries(["p", "px", "py", "pt", "pb", "pl", "pr"].map((key) => [key, spacingHandler]));
+
 const utilities = {
-    m: marginHandler,
-    p: paddingHandler,
+    ...marginUtilities,
+    ...paddingUtilities,
+    // gap: spacingHandler,
     bg: bgHandler,
     text: textHandler,
     z: (parts)=> ({"z-index" : parts[1]}),
-    // w: sizeHandler,
-    // h: sizeHandler,
-    // "max-w": sizeHandler,
-    // "max-h": sizeHandler,
+    w: sizeHandler,
+    h: sizeHandler,
+    "max-w": sizeHandler,
+    "max-h": sizeHandler,
 
     top: positionHandler,
     bottom: positionHandler,
     left: positionHandler,
     right: positionHandler,
     justify: flexHandler,
-    item: flexHandler,
+    items: flexHandler,
 
+}
+
+function getPrefix(parts) {
+  // return longest match first (e.g. "max-w" and not "max" for something like "max-w-96")
+  for (let i = parts.length - 1; i > 0; i--) {
+    const candidate = parts.slice(0, i).join("-");
+    if (utilities[candidate]) return candidate;
+  }
+  return null;
 }
 
 function parseClass(className) {
     if (staticUtilities[className]) return staticUtilities[className];
 
     const parts = className.split("-");
-    const prefix = parts[0];
-    if (!utilities[prefix]) return null;
+    const prefix = getPrefix(parts);
+    if (!prefix) return null;
 
     const handler = utilities[prefix];
     const style = handler(parts)

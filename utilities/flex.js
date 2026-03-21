@@ -18,12 +18,12 @@ const alignmentMap = {
 }
 
 export function flexHandler(parts) {
-    if(!flexPropertyMap[parts[0]]) return null;
-
-    const property = flexPropertyMap[parts[0]];
+    const property = parts[0];
     const value = parts[1];
 
+    if(!flexPropertyMap[property]) return null;
+
     return {
-        [property] : alignmentMap[value],
+        [flexPropertyMap[property]]: alignmentMap[value]
     }
 }
