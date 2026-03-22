@@ -1,7 +1,9 @@
 {
     "name": "chai-tailwindcss",
     "version": "1.0.0",
-    "description": "",
+    "description": "A lightweight utility-first CSS engine",
+    "browser": "./dist/chai.js",
+    "files": ["dist/"],
     "homepage": "https://github.com/AlokYadavCodes/chai-tailwind-css#readme",
     "bugs": {
         "url": "https://github.com/AlokYadavCodes/chai-tailwind-css/issues"
@@ -15,9 +17,11 @@
     "type": "module",
     "main": "main.js",
     "scripts": {
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "build": "esbuild main.js --bundle --format=iife --outfile=dist/chai.js --minify"
     },
     "devDependencies": {
+        "esbuild": "^0.27.4",
         "prettier": "3.8.1"
     }
 }
