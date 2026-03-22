@@ -1,6 +1,6 @@
 {
     "name": "chai-tailwindcss",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A lightweight utility-first CSS engine",
     "browser": "./dist/chai.js",
     "files": [

@@ -1,4 +1,4 @@
-export const colorMap = {
+export const colors = {
     red: "#ef4444",
     green: "#22c55e",
     blue: "#3b82f6",
@@ -25,4 +25,13 @@ export const colorMap = {
     yellow: "#eab308",
     lime: "#84cc16",
     purple: "#a855f8",
+};
+
+export const colorMap = {
+    ...colors,
+    get random() {
+        const allColors = Object.values(colors);
+        const randomColor = allColors[Math.floor(Math.random() * allColors.length)];
+        return randomColor;
+    },
 };

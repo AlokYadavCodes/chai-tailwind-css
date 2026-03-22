@@ -39,7 +39,6 @@ const borderStylePropertyMap = {
 };
 
 export function borderHandler(parts) {
-
     let property, value;
     if (parts.length === 3) {
         property = parts.slice(0, 2).join("-");
