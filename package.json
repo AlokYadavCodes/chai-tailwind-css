@@ -1,9 +1,11 @@
 {
     "name": "chai-tailwindcss",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A lightweight utility-first CSS engine",
     "browser": "./dist/chai.js",
-    "files": ["dist/"],
+    "files": [
+        "dist/"
+    ],
     "homepage": "https://github.com/AlokYadavCodes/chai-tailwind-css#readme",
     "bugs": {
         "url": "https://github.com/AlokYadavCodes/chai-tailwind-css/issues"
