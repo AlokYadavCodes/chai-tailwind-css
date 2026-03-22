@@ -17,4 +17,12 @@ export const colorMap = {
     rose: "#f43f5e",
     amber: "#f59e0b",
     orange: "#f97316",
+
+    fuchsia: "#d946ef",
+    cyan: "#06b6d4",
+    teal: "#14b8a6",
+    pink: "#ec4899",
+    yellow: "#eab308",
+    lime: "#84cc16",
+    purple: "#a855f8",
 };

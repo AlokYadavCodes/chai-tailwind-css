@@ -40,18 +40,14 @@ const borderStylePropertyMap = {
 
 export function borderHandler(parts) {
     console.log("inside border handler", parts);
-    const defaultStyles = {
-        "border-width": borderWidthScale["DEFAULT"],
-        "border-style": "solid",
-        "border-color": colorMap["black"],
-    };
+    
     let property, value;
     if (parts.length === 3) {
         property = parts.slice(0, 2).join("-");
         value = parts[2] || "DEFAULT";
 
         if (!borderWidthPropertyMap[property]) return null;
-        const styles = { ...defaultStyles };
+        const styles = {};
         borderWidthPropertyMap[property].forEach((prop) => {
             styles[prop] = borderWidthScale[value];
         });
@@ -71,7 +67,6 @@ export function borderHandler(parts) {
             console.log(r.property, r.source[value]);
             if (r.source[value])
                 return {
-                    ...defaultStyles,
                     [r.property]: r.source[value],
                 };
         }

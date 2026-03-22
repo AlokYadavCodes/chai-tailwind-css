@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChaiCSS: Utility-first CSS Engine</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="chai-bg-zinc chai-flex chai-justify-between chai-items-center chai-px-6 chai-md-px-10 chai-py-4">
+        <div class="chai-text-white chai-font-bold chai-text-lg chai-md-text-xl chai-font-mono chai-bg-zinc">☕ ChaiCSS
+        </div>
+        <div class="chai-flex chai-gap-4 chai-md-gap-6 chai-items-center chai-bg-zinc">
+            <a href="https://github.com/AlokYadavCodes/chai-tailwind-css"
+                class="chai-text-gray chai-text-sm chai-bg-zinc chai-hidden chai-md-block">GitHub</a>
+            <a href="https://npmjs.com/package/chai-tailwindcss"
+                class="chai-text-gray chai-text-sm chai-bg-zinc chai-hidden chai-md-block">npm</a>
+            <div
+                class="chai-bg-indigo chai-text-white chai-px-4 chai-py-1 chai-rounded-full chai-text-xs chai-font-semibold">
+                v1.0</div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div
+        class="chai-bg-zinc chai-flex chai-flex-col chai-items-center chai-px-6 chai-md-px-10 chai-py-12 chai-md-py-16 chai-text-center">
+        <div
+            class="chai-bg-zinc chai-border chai-border-slate chai-text-fuchsia chai-text-xs chai-md-text-sm chai-font-mono chai-px-4 chai-py-1 chai-rounded-full chai-mb-6">
+            ✦ utility-first · inline styles · no build step
+        </div>
+        <div
+            class="chai-text-white chai-text-4xl chai-md-text-6xl chai-font-extrabold chai-font-sans chai-bg-zinc chai-mb-3">
+            Write classes.
+        </div>
+        <div
+            class="chai-text-white chai-text-4xl chai-md-text-6xl chai-font-extrabold chai-font-sans chai-bg-zinc chai-mb-6">
+            Get styles.
+        </div>
+        <div class="chai-text-gray chai-text-sm chai-md-text-lg chai-font-light chai-bg-zinc chai-mb-8">
+            <span class="chai-text-cyan chai-font-mono chai-bg-zinc">chai-*</span> classes → inline styles.
+            Automatically.
+        </div>
+        <div
+            class="chai-bg-neutral chai-text-lime chai-font-mono chai-text-xs chai-md-text-sm chai-px-6 chai-py-3 chai-rounded-xl chai-mb-3">
+            &lt;script src="unpkg.com/chai-tailwindcss/dist/chai.js"&gt;&lt;/script&gt;
+        </div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">↑ one line. that's it.</div>
+    </div>
+
+    <!-- Colors -->
+    <div class="chai-bg-white chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-zinc chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-white chai-mb-6">Color Palette
+        </div>
+        <div
+            class="chai-grid chai-grid-cols-3 chai-sm-grid-cols-5 chai-md-grid-cols-6 chai-lg-grid-cols-8 chai-gap-3 chai-md-gap-4 chai-bg-white">
+            <div
+                class="chai-bg-red chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                red</div>
+            <div
+                class="chai-bg-orange chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                orange</div>
+            <div
+                class="chai-bg-amber chai-text-black chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                amber</div>
+            <div
+                class="chai-bg-yellow chai-text-black chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                yellow</div>
+            <div
+                class="chai-bg-lime chai-text-black chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                lime</div>
+            <div
+                class="chai-bg-green chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                green</div>
+            <div
+                class="chai-bg-emerald chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                emerald</div>
+            <div
+                class="chai-bg-teal chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                teal</div>
+            <div
+                class="chai-bg-cyan chai-text-black chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                cyan</div>
+            <div
+                class="chai-bg-sky chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                sky</div>
+            <div
+                class="chai-bg-blue chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                blue</div>
+            <div
+                class="chai-bg-indigo chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                indigo</div>
+            <div
+                class="chai-bg-violet chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                violet</div>
+            <div
+                class="chai-bg-purple chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                purple</div>
+            <div
+                class="chai-bg-fuchsia chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                fuchsia</div>
+            <div
+                class="chai-bg-pink chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                pink</div>
+            <div
+                class="chai-bg-rose chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                rose</div>
+            <div
+                class="chai-bg-gray chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                gray</div>
+            <div
+                class="chai-bg-slate chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                slate</div>
+            <div
+                class="chai-bg-neutral chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                neutral</div>
+            <div
+                class="chai-bg-zinc chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                zinc</div>
+            <div
+                class="chai-bg-black chai-text-white chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                black</div>
+            <div
+                class="chai-bg-white chai-text-black chai-p-3 chai-md-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center chai-border chai-border-gray">
+                white</div>
+        </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="chai-bg-zinc chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-white chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-zinc chai-mb-6">Typography
+        </div>
+        <div class="chai-grid chai-grid-cols-1 chai-md-grid-cols-2 chai-gap-8 chai-md-gap-10 chai-bg-zinc">
+            <!-- Sizes -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-4">Font Sizes</div>
+                <div class="chai-text-white chai-text-4xl chai-md-text-6xl chai-font-black chai-bg-zinc chai-mb-2">
+                    Display</div>
+                <div class="chai-text-white chai-text-2xl chai-md-text-4xl chai-font-extrabold chai-bg-zinc chai-mb-2">
+                    Heading</div>
+                <div class="chai-text-gray chai-text-xl chai-md-text-2xl chai-font-semibold chai-bg-zinc chai-mb-2">
+                    Subheading</div>
+                <div class="chai-text-gray chai-text-base chai-md-text-lg chai-font-normal chai-bg-zinc chai-mb-1">Body
+                    text</div>
+                <div class="chai-text-slate chai-text-sm chai-font-light chai-bg-zinc chai-mb-1">Small text</div>
+                <div class="chai-text-slate chai-text-xs chai-font-thin chai-font-mono chai-bg-zinc">Tiny mono</div>
+            </div>
+            <!-- Weights & Families -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-4">Font Weights</div>
+                <div class="chai-grid chai-grid-cols-2 chai-gap-3 chai-bg-zinc chai-mb-6">
+                    <div class="chai-text-white chai-text-lg chai-font-thin chai-bg-zinc">Thin</div>
+                    <div class="chai-text-white chai-text-lg chai-font-light chai-bg-zinc">Light</div>
+                    <div class="chai-text-white chai-text-lg chai-font-normal chai-bg-zinc">Normal</div>
+                    <div class="chai-text-white chai-text-lg chai-font-medium chai-bg-zinc">Medium</div>
+                    <div class="chai-text-white chai-text-lg chai-font-semibold chai-bg-zinc">Semibold</div>
+                    <div class="chai-text-white chai-text-lg chai-font-bold chai-bg-zinc">Bold</div>
+                    <div class="chai-text-white chai-text-lg chai-font-extrabold chai-bg-zinc">Extrabold</div>
+                    <div class="chai-text-white chai-text-lg chai-font-black chai-bg-zinc">Black</div>
+                </div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-3">Font Families</div>
+                <div class="chai-flex chai-gap-6 chai-bg-zinc">
+                    <div class="chai-text-cyan chai-text-lg chai-font-sans chai-bg-zinc">Sans</div>
+                    <div class="chai-text-amber chai-text-lg chai-font-serif chai-bg-zinc">Serif</div>
+                    <div class="chai-text-lime chai-text-lg chai-font-mono chai-bg-zinc">Mono</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="chai-bg-white chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-zinc chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-white chai-mb-2">Grid Layout
+        </div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-6">chai-grid · chai-grid-cols-* ·
+            chai-gap-*</div>
+
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-3">4 columns</div>
+        <div class="chai-grid chai-grid-cols-4 chai-gap-3 chai-bg-white chai-mb-6">
+            <div
+                class="chai-bg-indigo chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                1</div>
+            <div
+                class="chai-bg-violet chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                2</div>
+            <div
+                class="chai-bg-fuchsia chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                3</div>
+            <div
+                class="chai-bg-pink chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                4</div>
+        </div>
+
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-3">3 columns</div>
+        <div class="chai-grid chai-grid-cols-3 chai-gap-3 chai-bg-white chai-mb-6">
+            <div
+                class="chai-bg-teal chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                1</div>
+            <div
+                class="chai-bg-cyan chai-text-black chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                2</div>
+            <div
+                class="chai-bg-sky chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                3</div>
+        </div>
+
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-3">2 columns</div>
+        <div class="chai-grid chai-grid-cols-2 chai-gap-3 chai-bg-white">
+            <div
+                class="chai-bg-emerald chai-text-white chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                1</div>
+            <div
+                class="chai-bg-lime chai-text-black chai-p-4 chai-rounded-xl chai-text-center chai-font-mono chai-text-sm">
+                2</div>
+        </div>
+    </div>
+
+    <!-- Flexbox -->
+    <div class="chai-bg-zinc chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-white chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-zinc chai-mb-2">Flexbox</div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-6">chai-flex · chai-justify-* ·
+            chai-items-* · chai-flex-col</div>
+
+        <div class="chai-grid chai-grid-cols-1 chai-md-grid-cols-2 chai-gap-8 chai-bg-zinc">
+            <!-- Row -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-3">chai-flex
+                    chai-justify-between</div>
+                <div class="chai-flex chai-justify-between chai-items-center chai-bg-zinc">
+                    <div
+                        class="chai-bg-rose chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-font-semibold chai-text-sm">
+                        Start</div>
+                    <div
+                        class="chai-bg-pink chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-font-semibold chai-text-sm">
+                        Center</div>
+                    <div
+                        class="chai-bg-fuchsia chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-font-semibold chai-text-sm">
+                        End</div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-3">chai-flex chai-flex-col
+                    chai-gap-3</div>
+                <div class="chai-flex chai-flex-col chai-gap-3 chai-bg-zinc">
+                    <div
+                        class="chai-bg-emerald chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-font-mono chai-text-sm">
+                        Row 1</div>
+                    <div
+                        class="chai-bg-teal chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-font-mono chai-text-sm">
+                        Row 2</div>
+                    <div
+                        class="chai-bg-cyan chai-text-black chai-px-4 chai-py-3 chai-rounded-xl chai-font-mono chai-text-sm">
+                        Row 3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responsive Visibility -->
+    <div class="chai-bg-white chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-zinc chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-white chai-mb-2">Responsive
+            Breakpoints</div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-6">Resize the window — each card
+            appears at its breakpoint only</div>
+
+        <!-- Mobile only: below 768px -->
+        <div
+            class="chai-block chai-md-hidden chai-bg-violet chai-text-white chai-p-6 chai-rounded-xl chai-mb-4 chai-font-mono">
+            <div class="chai-text-2xl chai-font-bold chai-bg-violet chai-mb-2">📱 Mobile</div>
+            <div class="chai-text-sm chai-bg-violet">I'm visible below 768px</div>
+            <div class="chai-text-xs chai-bg-violet chai-mt-2 chai-text-gray">chai-block chai-md-hidden</div>
+        </div>
+
+        <!-- Tablet only: 768px–1024px -->
+        <div
+            class="chai-hidden chai-md-block chai-lg-hidden chai-bg-sky chai-text-white chai-p-6 chai-rounded-xl chai-mb-4 chai-font-mono">
+            <div class="chai-text-2xl chai-font-bold chai-bg-sky chai-mb-2">💻 Tablet</div>
+            <div class="chai-text-sm chai-bg-sky">I'm visible 768px – 1024px</div>
+            <div class="chai-text-xs chai-bg-sky chai-mt-2 chai-text-zinc">chai-hidden chai-md-block chai-lg-hidden
+            </div>
+        </div>
+
+        <!-- Desktop only: above 1024px -->
+        <div
+            class="chai-hidden chai-lg-block chai-bg-emerald chai-text-white chai-p-6 chai-rounded-xl chai-mb-4 chai-font-mono">
+            <div class="chai-text-2xl chai-font-bold chai-bg-emerald chai-mb-2">🖥️ Desktop</div>
+            <div class="chai-text-sm chai-bg-emerald">I'm visible above 1024px</div>
+            <div class="chai-text-xs chai-bg-emerald chai-mt-2 chai-text-zinc">chai-hidden chai-lg-block</div>
+        </div>
+    </div>
+
+    <!-- Transforms -->
+    <div class="chai-bg-zinc chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-white chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-zinc chai-mb-2">Transforms
+        </div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-8">chai-scale-*</div>
+        <div class="chai-flex chai-justify-between chai-items-center chai-bg-zinc">
+            <div class="chai-flex chai-flex-col chai-items-center chai-gap-3 chai-bg-zinc">
+                <div
+                    class="chai-bg-violet chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-scale-75 chai-font-mono chai-text-xs">
+                    75</div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">75</div>
+            </div>
+            <div class="chai-flex chai-flex-col chai-items-center chai-gap-3 chai-bg-zinc">
+                <div
+                    class="chai-bg-fuchsia chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-scale-90 chai-font-mono chai-text-xs">
+                    90</div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">90</div>
+            </div>
+            <div class="chai-flex chai-flex-col chai-items-center chai-gap-3 chai-bg-zinc">
+                <div
+                    class="chai-bg-teal chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-scale-100 chai-font-mono chai-text-xs">
+                    100</div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">100</div>
+            </div>
+            <div class="chai-flex chai-flex-col chai-items-center chai-gap-3 chai-bg-zinc">
+                <div
+                    class="chai-bg-sky chai-text-white chai-px-4 chai-py-3 chai-rounded-xl chai-scale-110 chai-font-mono chai-text-xs">
+                    110</div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">110</div>
+            </div>
+            <div class="chai-flex chai-flex-col chai-items-center chai-gap-3 chai-bg-zinc">
+                <div
+                    class="chai-bg-amber chai-text-black chai-px-4 chai-py-3 chai-rounded-xl chai-scale-125 chai-font-mono chai-text-xs">
+                    125</div>
+                <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc">125</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Borders -->
+    <div class="chai-bg-white chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-zinc chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-white chai-mb-2">Borders &amp;
+            Radius</div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-white chai-mb-6">chai-border · chai-rounded-*
+        </div>
+        <div class="chai-grid chai-grid-cols-3 chai-sm-grid-cols-4 chai-lg-grid-cols-7 chai-gap-4 chai-bg-white">
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-zinc chai-text-zinc chai-p-4 chai-rounded-none chai-font-mono chai-text-xs chai-text-center">
+                none</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-indigo chai-text-indigo chai-p-4 chai-rounded-sm chai-font-mono chai-text-xs chai-text-center">
+                sm</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-violet chai-text-violet chai-p-4 chai-rounded-md chai-font-mono chai-text-xs chai-text-center">
+                md</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-fuchsia chai-text-fuchsia chai-p-4 chai-rounded-lg chai-font-mono chai-text-xs chai-text-center">
+                lg</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-cyan chai-text-cyan chai-p-4 chai-rounded-xl chai-font-mono chai-text-xs chai-text-center">
+                xl</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-lime chai-text-lime chai-p-4 chai-rounded-2xl chai-font-mono chai-text-xs chai-text-center">
+                2xl</div>
+            <div
+                class="chai-bg-white chai-border chai-border-solid chai-border-amber chai-text-amber chai-p-4 chai-rounded-full chai-font-mono chai-text-xs chai-text-center">
+                full</div>
+        </div>
+    </div>
+
+    <!-- Playground -->
+    <div class="chai-bg-zinc chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-violet chai-text-xs chai-font-mono chai-bg-zinc chai-mb-2">INTERACTIVE</div>
+        <div class="chai-text-white chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-zinc chai-mb-2">Live Playground</div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-6">Type chai-* classes and watch them apply instantly via MutationObserver</div>
+        <input id="classInput" type="text"
+            class="chai-w-full chai-py-3 chai-px-5 chai-font-mono chai-text-sm chai-border-2 chai-border-solid chai-border-indigo chai-rounded-xl chai-bg-zinc chai-text-white"
+            placeholder="Try: chai-bg-indigo chai-text-white chai-p-6 chai-rounded-xl chai-text-2xl chai-font-bold" />
+        <div class="chai-text-indigo chai-text-xs chai-font-mono chai-bg-zinc chai-mt-4 chai-mb-3">PREVIEW ↓</div>
+        <div id="preview" class="chai-bg-zinc" style="min-height: 100px; border: 2px dashed #64748b; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #64748b; font-family: monospace; font-size: 14px;">
+            Your preview will appear here
+        </div>
+    </div>
+    <script>
+        document.getElementById("classInput").addEventListener("input", (e) => {
+            document.getElementById("preview").className = e.target.value;
+        });
+    </script>
+
+    <!-- Class References -->
+    <div class="chai-bg-zinc chai-px-6 chai-md-px-10 chai-py-10 chai-md-py-12">
+        <div class="chai-text-white chai-text-xl chai-md-text-2xl chai-font-bold chai-bg-zinc chai-mb-2">Supported
+            Classes</div>
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-zinc chai-mb-8">Every utility pattern supported
+            by ChaiCSS</div>
+
+        <div class="chai-grid chai-grid-cols-1 chai-sm-grid-cols-2 chai-lg-grid-cols-4 chai-gap-8 chai-bg-zinc">
+
+            <!-- Spacing -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-indigo chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Spacing</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-p-{0-20}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-px-{n} · chai-py-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-pt-{n} · chai-pb-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-pl-{n} · chai-pr-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-m-{0-20}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-mx-{n} · chai-my-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-mt-{n} · chai-mb-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-ml-{n} · chai-mr-{n}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-gap-{n}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-gap-x-{n} · chai-gap-y-{n}
+                </div>
+            </div>
+
+            <!-- Text & Font -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-violet chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Text &amp; Font</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-{color}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-xs · sm · base
+                    · lg</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-xl · 2xl · 3xl
+                    · 4xl</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-5xl · 6xl</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-left · center
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-text-right · justify
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-font-thin ·
+                    extralight · light</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-font-normal · medium
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-font-semibold · bold
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-font-extrabold ·
+                    black</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-font-sans · serif · mono</div>
+            </div>
+
+            <!-- Display & Position -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-cyan chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Display &amp; Position
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-block · inline-block
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-inline · chai-hidden
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-contents ·
+                    chai-list-item</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-relative · absolute
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-fixed · sticky ·
+                    static</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-top-{n} ·
+                    chai-bottom-{n}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-left-{n} · chai-right-{n}
+                </div>
+            </div>
+
+            <!-- Flexbox -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-rose chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Flexbox</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex ·
+                    chai-inline-flex</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex-row · flex-col
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex-row-reverse
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex-col-reverse
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex-wrap · nowrap
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-flex-wrap-reverse
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-justify-start · end
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-justify-center ·
+                    between</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-justify-around ·
+                    evenly</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-items-start · end ·
+                    center</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-items-stretch · baseline</div>
+            </div>
+
+            <!-- Grid -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-amber chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Grid</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-grid ·
+                    chai-inline-grid</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-grid-cols-{1-12}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-grid-rows-{1-12}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-col-span-{1-12}
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-row-span-{1-12}</div>
+            </div>
+
+            <!-- Borders -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-fuchsia chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Borders</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border ·
+                    chai-border-{0|2|4|8}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border-t · b · l ·
+                    r-{w}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border-x-{w} ·
+                    border-y-{w}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border-{color}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border-solid ·
+                    dashed</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-border-dotted ·
+                    double · none</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-rounded ·
+                    chai-rounded-none</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-rounded-sm · md · lg
+                    · xl</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-rounded-2xl · 3xl · full</div>
+            </div>
+
+            <!-- Sizing -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-emerald chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Sizing</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-w-{0-96}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-h-{0-96}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-w-auto · full ·
+                    screen</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-w-min · max · fit
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-max-w-{size} ·
+                    min-w-{size}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-max-h-{size} ·
+                    min-h-{size}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">chai-z-{n}</div>
+            </div>
+
+            <!-- Transforms & Colors -->
+            <div class="chai-bg-zinc">
+                <div class="chai-text-lime chai-text-sm chai-font-bold chai-bg-zinc chai-mb-3">Transforms &amp; Colors
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-scale-{50-150}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-scale-x-{n} ·
+                    scale-y-{n}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">chai-bg-{color}</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">23 colors available:
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">red orange amber yellow
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">lime green emerald teal
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">cyan sky blue indigo
+                </div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc chai-mb-1">violet purple fuchsia
+                    pink</div>
+                <div class="chai-text-gray chai-text-xs chai-font-mono chai-bg-zinc">rose gray slate neutral zinc</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+        class="chai-bg-neutral chai-flex chai-flex-col chai-md-flex-row chai-justify-center chai-items-center chai-py-6 chai-gap-1">
+        <div class="chai-text-slate chai-text-xs chai-font-mono chai-bg-neutral">☕ This entire page uses only</div>
+        <div class="chai-text-lime chai-text-xs chai-font-mono chai-bg-neutral">chai-* classes + one script tag for
+            styling.</div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

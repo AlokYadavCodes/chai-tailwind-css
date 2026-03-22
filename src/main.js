@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     allElements().forEach(processElement);
+    document.body.style.opacity = 1;
 
     // Register a matchMedia listener per breakpoint
     for (const minWidth of Object.values(breakpoints)) {
