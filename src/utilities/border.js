@@ -39,7 +39,6 @@ const borderStylePropertyMap = {
 };
 
 export function borderHandler(parts) {
-    console.log("inside border handler", parts);
 
     let property, value;
     if (parts.length === 3) {
@@ -55,7 +54,6 @@ export function borderHandler(parts) {
     } else {
         // property = parts[0];
         value = parts[1] || "DEFAULT";
-        console.log(property, value);
 
         const resolvers = [
             { source: borderWidthScale, property: "border-width" },
@@ -64,7 +62,6 @@ export function borderHandler(parts) {
             { source: colorMap, property: "border-color" },
         ];
         for (const r of resolvers) {
-            console.log(r.property, r.source[value]);
             if (r.source[value])
                 return {
                     [r.property]: r.source[value],

@@ -24,7 +24,6 @@ export function gridHandler(parts) {
     const property = parts.slice(0, 2).join("-");
     const value = parts[2];
     if (!gridPropertyMap[property] || !gridValues[value]) return null;
-    console.log("inside grid handler", property, value);
-    console.log(gridPropertyMap[property](value));
+
     return gridPropertyMap[property](value);
 }

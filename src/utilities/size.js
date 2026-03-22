@@ -70,7 +70,7 @@ export function sizeHandler(parts) {
 
     if (!sizePropertyMap[property]) return null;
 
-    console.log("sizeHandler", { property, value });
+
     return {
         [sizePropertyMap[property]]: sizeScale[value],
     };
