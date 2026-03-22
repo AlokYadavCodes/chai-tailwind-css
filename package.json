@@ -15,10 +15,10 @@
     "license": "ISC",
     "author": "",
     "type": "module",
-    "main": "main.js",
+    "main": "src/main.js",
     "scripts": {
         "format": "prettier --write .",
-        "build": "esbuild main.js --bundle --format=iife --outfile=dist/chai.js --minify"
+        "build": "esbuild src/main.js --bundle --format=iife --outfile=dist/chai.js --minify"
     },
     "devDependencies": {
         "esbuild": "^0.27.4",
