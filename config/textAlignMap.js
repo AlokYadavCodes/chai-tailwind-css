@@ -3,4 +3,4 @@ export const textAlignMap = {
     center: "center",
     right: "right",
     justify: "justify",
-}
+};

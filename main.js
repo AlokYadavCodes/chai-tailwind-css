@@ -19,7 +19,8 @@ function init() {
 
     // Register a matchMedia listener per breakpoint
     for (const minWidth of Object.values(breakpoints)) {
-        window.matchMedia(`(min-width: ${minWidth}px)`)
+        window
+            .matchMedia(`(min-width: ${minWidth}px)`)
             .addEventListener("change", () => allElements().forEach(processElement));
     }
 
@@ -27,10 +28,13 @@ function init() {
     const observer = new MutationObserver((mutations) => {
         for (const mutation of mutations) {
             if (mutation.type === "childList") {
-                mutation.addedNodes.forEach(node => {
+                mutation.addedNodes.forEach((node) => {
                     if (node.nodeType !== Node.ELEMENT_NODE) return;
-                    if ([...node.classList].some(c => c.startsWith("chai-"))) processElement(node);
-                    node.querySelectorAll("[class^='chai-'], [class*=' chai-']").forEach(processElement);
+                    if ([...node.classList].some((c) => c.startsWith("chai-")))
+                        processElement(node);
+                    node.querySelectorAll("[class^='chai-'], [class*=' chai-']").forEach(
+                        processElement
+                    );
                 });
             }
             if (mutation.type === "attributes") {
@@ -104,10 +108,18 @@ const staticUtilities = {
     "flex-nowrap": { flexWrap: "nowrap" },
 };
 
-const marginUtilities = Object.fromEntries(["m", "mx", "my", "mt", "mb", "ml", "mr"].map((key) => [key, spacingHandler]));
-const paddingUtilities = Object.fromEntries(["p", "px", "py", "pt", "pb", "pl", "pr"].map((key) => [key, spacingHandler]));
-const gapUtilities = Object.fromEntries(["gap", "gap-x", "gap-y"].map((key) => [key, spacingHandler]));
-const sizeUtilities = Object.fromEntries(["w", "h", "max-w", "min-w", "max-h", "min-h"].map((key) => [key, sizeHandler]));
+const marginUtilities = Object.fromEntries(
+    ["m", "mx", "my", "mt", "mb", "ml", "mr"].map((key) => [key, spacingHandler])
+);
+const paddingUtilities = Object.fromEntries(
+    ["p", "px", "py", "pt", "pb", "pl", "pr"].map((key) => [key, spacingHandler])
+);
+const gapUtilities = Object.fromEntries(
+    ["gap", "gap-x", "gap-y"].map((key) => [key, spacingHandler])
+);
+const sizeUtilities = Object.fromEntries(
+    ["w", "h", "max-w", "min-w", "max-h", "min-h"].map((key) => [key, sizeHandler])
+);
 
 const utilities = {
     ...marginUtilities,
@@ -116,7 +128,7 @@ const utilities = {
     ...gapUtilities,
     bg: bgHandler,
     text: textHandler,
-    z: (parts)=> ({"z-index" : parts[1]}),
+    z: (parts) => ({ "z-index": parts[1] }),
     w: sizeHandler,
     h: sizeHandler,
 
@@ -137,11 +149,10 @@ const utilities = {
     "col-span": gridHandler,
     "row-span": gridHandler,
 
-    "scale": transformHandler,
+    scale: transformHandler,
     "scale-x": transformHandler,
     "scale-y": transformHandler,
-
-}
+};
 
 function getPrefix(parts) {
     // return longest match first (e.g. "max-w" and not "max" for something like "max-w-96")
@@ -162,7 +173,6 @@ function parseClass(className) {
     }
 
     if (staticUtilities[className]) return { style: staticUtilities[className], breakpoint };
-
 
     const prefix = getPrefix(parts);
     if (!prefix) return null;

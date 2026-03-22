@@ -17,4 +17,4 @@ export const colorMap = {
     rose: "#f43f5e",
     amber: "#f59e0b",
     orange: "#f97316",
-}
+};

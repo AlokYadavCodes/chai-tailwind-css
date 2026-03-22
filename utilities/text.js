@@ -2,17 +2,18 @@ import { fontSizeScale } from "../config/fontSizeScale.js";
 import { textAlignMap } from "../config/textAlignMap.js";
 import { colorMap } from "../config/colorMap.js";
 
-export function textHandler (parts) {
+export function textHandler(parts) {
     const resolvers = [
-        {source: fontSizeScale, property: "font-size"},
-        {source: textAlignMap, property: "text-align"},
-        {source: colorMap, property: "color"}
-    ]
-    
+        { source: fontSizeScale, property: "font-size" },
+        { source: textAlignMap, property: "text-align" },
+        { source: colorMap, property: "color" },
+    ];
+
     const value = parts[1];
-    for (const r of resolvers){        
-        if(r.source[value]) return {
-            [r.property] : r.source[value]
-        }
+    for (const r of resolvers) {
+        if (r.source[value])
+            return {
+                [r.property]: r.source[value],
+            };
     }
 }

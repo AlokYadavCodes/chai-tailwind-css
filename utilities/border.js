@@ -1,23 +1,23 @@
 import { colorMap } from "../config/colorMap.js";
 
 const borderWidthScale = {
-    "0": "0px",
-    "DEFAULT": "1px",
-    "2": "2px",
-    "4": "4px",
-    "8": "8px",
-}
+    0: "0px",
+    DEFAULT: "1px",
+    2: "2px",
+    4: "4px",
+    8: "8px",
+};
 
 const borderRadiusScale = {
-    "none": "0px",
-    "sm": "2px",
-    "DEFAULT": "4px",
-    "md": "6px",
-    "lg": "8px",
-    "xl": "12px",
+    none: "0px",
+    sm: "2px",
+    DEFAULT: "4px",
+    md: "6px",
+    lg: "8px",
+    xl: "12px",
     "2xl": "16px",
     "3xl": "24px",
-    "full": "9999px"
+    full: "9999px",
 };
 
 const borderWidthPropertyMap = {
@@ -31,12 +31,12 @@ const borderWidthPropertyMap = {
 };
 
 const borderStylePropertyMap = {
-    "solid": "solid",
-    "dashed": "dashed",
-    "dotted": "dotted",
-    "double": "double",
-    "none": "none",
-}
+    solid: "solid",
+    dashed: "dashed",
+    dotted: "dotted",
+    double: "double",
+    none: "none",
+};
 
 export function borderHandler(parts) {
     console.log("inside border handler", parts);
@@ -44,7 +44,7 @@ export function borderHandler(parts) {
         "border-width": borderWidthScale["DEFAULT"],
         "border-style": "solid",
         "border-color": colorMap["black"],
-    }
+    };
     let property, value;
     if (parts.length === 3) {
         property = parts.slice(0, 2).join("-");
@@ -56,8 +56,6 @@ export function borderHandler(parts) {
             styles[prop] = borderWidthScale[value];
         });
         return styles;
-
-
     } else {
         // property = parts[0];
         value = parts[1] || "DEFAULT";
@@ -67,14 +65,15 @@ export function borderHandler(parts) {
             { source: borderWidthScale, property: "border-width" },
             { source: borderRadiusScale, property: "border-radius" },
             { source: borderStylePropertyMap, property: "border-style" },
-            { source: colorMap, property: "border-color" }
-        ]
+            { source: colorMap, property: "border-color" },
+        ];
         for (const r of resolvers) {
             console.log(r.property, r.source[value]);
-            if (r.source[value]) return {
-                ...defaultStyles,
-                [r.property]: r.source[value]
-            }
+            if (r.source[value])
+                return {
+                    ...defaultStyles,
+                    [r.property]: r.source[value],
+                };
         }
     }
 }

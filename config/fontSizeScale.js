@@ -9,4 +9,4 @@ export const fontSizeScale = {
     "4xl": "36px",
     "5xl": "48px",
     "6xl": "60px",
-}
+};

@@ -1,0 +1,23 @@
+{
+    "name": "chai-tailwindcss",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/AlokYadavCodes/chai-tailwind-css#readme",
+    "bugs": {
+        "url": "https://github.com/AlokYadavCodes/chai-tailwind-css/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AlokYadavCodes/chai-tailwind-css.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "main.js",
+    "scripts": {
+        "format": "prettier --write ."
+    },
+    "devDependencies": {
+        "prettier": "3.8.1"
+    }
+}
